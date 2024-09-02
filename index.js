@@ -1,14 +1,22 @@
 // Create a Counter with Limited Increments
-
-function createLimitedCounter() {
+// 01
+function createLimitedCounter(limit) {
   let count = 0;
 
-  return function (limit) {
-    if (counter < limit) {
+  return function () {
+    if (count < limit) {
       count++;
+      console.log(`Count: ${count}`);
     } else {
-      console.log(`Counter is bigger than limit.`);
+      console.log(`Limit reached!`);
     }
   };
 }
-console.log(createLimitedCounter(100));
+const counter = new createLimitedCounter(4);
+
+counter();
+counter();
+counter();
+counter();
+
+// 02
